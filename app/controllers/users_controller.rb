@@ -7,4 +7,21 @@ class UsersController < ApplicationController
   def index
     @users = User.all.shuffle
   end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = 'Welcome to our dating app'
+      redirect_to users_path
+    else
+      flash[:error] = 'Something wrong with your login information'
+      render 'new'
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
 end
