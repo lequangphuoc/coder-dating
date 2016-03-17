@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  before_filter :skip_if_logged_in, only: [:new]
   def new
 
   end
