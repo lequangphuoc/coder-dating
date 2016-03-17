@@ -1,0 +1,16 @@
+<h1 class="text-sm-center">Log in</h1>
+
+<%= form_for(:session, :html => {:url => login_path, method: :post }) do |f| %>
+  <div class="form-group">
+    <%= f.text_field 'email', class: 'form-control', placeholder: 'Your E-mail' %>
+  </div>
+
+  <div class="form-group">
+    <div class="half-width">
+      <%= f.password_field 'password', class: 'form-control', placeholder: 'Password' %>
+    </div>
+<br>
+  <div class="form-group">
+    <%= f.submit 'Log in', class: 'btn btn-block btn-info' %>
+  </div>
+  <% end %>
